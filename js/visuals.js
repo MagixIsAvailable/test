@@ -44,8 +44,9 @@ export function setupVisuals(viewer, state, osmBuildings) {
     const hotspots = {
         nitrogen: { pos: [-10, 45, 10000], color: Cesium.Color.YELLOW, trigger: 0.6 },
         climate: { pos: [0, 80, 10000], color: Cesium.Color.RED, trigger: 0.7 },
-        biodiversity: { pos: [-60, 0, 10000], color: Cesium.Color.BLACK, trigger: 0.8 },
-        land: { pos: [60, 45, 10000], color: Cesium.Color.SADDLEBROWN, trigger: 0.5 }
+        biodiversity: { pos: [-60, -3, 10000], color: Cesium.Color.BLACK, trigger: 0.8 },
+        land: { pos: [25, 0, 10000], color: Cesium.Color.SADDLEBROWN, trigger: 0.5 },
+        phosphorus: { pos: [25, -5, 10000], color: Cesium.Color.ORANGE, trigger: 0.6 }
     };
 
     const updateParticles = () => {
@@ -58,11 +59,11 @@ export function setupVisuals(viewer, state, osmBuildings) {
                     image: particleCanvas,
                     startColor: data.color.withAlpha(0.6),
                     endColor: data.color.withAlpha(0.0),
-                    startScale: 1.0, endScale: 5.0,
-                    minimumParticleLife: 2.0, maximumParticleLife: 4.0,
-                    minimumSpeed: 5000.0, maximumSpeed: 15000.0,
-                    emissionRate: bState * 100,
-                    lifetime: 10.0,
+                    startScale: 2.0, endScale: 10.0,
+                    minimumParticleLife: 5.0, maximumParticleLife: 10.0,
+                    minimumSpeed: 20.0, maximumSpeed: 100.0,
+                    emissionRate: bState * 50,
+                    lifetime: 16.0,
                     emitterModelMatrix: Cesium.Transforms.eastNorthUpToFixedFrame(pos),
                     sizeInMeters: true,
                     updateCallback: (p, dt) => {

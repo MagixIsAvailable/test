@@ -32,7 +32,41 @@ viewer.entities.add({
         scale: 0.8
     },
     label: {
-        text: "Nitrogen Hotspot",
+        text: "Nitrogen Hotspot (Europe)",
+        font: '12pt sans-serif',
+        pixelOffset: new Cesium.Cartesian2(0, -50),
+        showBackground: true
+    }
+});
+
+viewer.entities.add({
+    id: "biodiversity-amazon",
+    name: "Amazon Tropical Rainforest (Biodiversity)",
+    position: Cesium.Cartesian3.fromDegrees(-60, -3, 1000), 
+    billboard: {
+        image: 'https://img.icons8.com/color/48/000000/amazon.png',
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        scale: 0.8
+    },
+    label: {
+        text: "Biodiversity Hotspot (Amazon)",
+        font: '12pt sans-serif',
+        pixelOffset: new Cesium.Cartesian2(0, -50),
+        showBackground: true
+    }
+});
+
+viewer.entities.add({
+    id: "land-africa",
+    name: "Sub-Saharan Agriculture Expansion (Land/Phosphorus)",
+    position: Cesium.Cartesian3.fromDegrees(25, 0, 1000), 
+    billboard: {
+        image: 'https://img.icons8.com/color/48/000000/safari.png',
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        scale: 0.8
+    },
+    label: {
+        text: "Land/P Hotspot (Africa)",
         font: '12pt sans-serif',
         pixelOffset: new Cesium.Cartesian2(0, -50),
         showBackground: true
@@ -129,8 +163,8 @@ function tick() {
 }
 
 function updateGlobeColors() {
-    // 1. Update HUD bars
-    ['nitrogen', 'climate', 'land'].forEach(key => {
+    // 1. Update HUD bars for all 9 boundaries
+    Object.keys(state.boundaries).forEach(key => {
         const container = document.getElementById(`${key}-bar`);
         if (container) {
             const fill = container.querySelector('.bar-fill');
