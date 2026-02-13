@@ -91,3 +91,59 @@ button.active {
     color: white;
     padding: 0;
 }
+
+/* Environmental HUD */
+#hud {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 220px;
+    border: 1px solid #444;
+}
+
+#hud-header {
+    cursor: move;
+    background: #333;
+    margin: -10px -10px 10px -10px;
+    padding: 5px 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+}
+
+.hud-item {
+    margin-bottom: 4px;
+    clear: both;
+}
+
+.bar-container {
+    width: 100px;
+    height: 10px;
+    background: #222;
+    float: right;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    width: 0%;
+    height: 100%;
+    background: lime;
+}
+
+#chaos-btn {
+    background-color: #991b1b;
+}
+
+.ui-footer {
+    font-size: 0.85rem;
+    color: #475569;
+}
